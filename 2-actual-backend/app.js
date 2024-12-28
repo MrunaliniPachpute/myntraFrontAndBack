@@ -14,6 +14,10 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get('/', (req, res) =>{
+  res.send('Welcome to myntra items store')
+})
+
 app.get('/items', async (req, res) => {
   const storedItems = await getStoredItems();
    await new Promise((resolve, reject) => setTimeout(() => resolve(), 2000));
@@ -38,4 +42,7 @@ app.post('/items', async (req, res) => {
   res.status(201).json({ message: 'Stored new item.', item: newItem });
 });
 
-app.listen(8080);
+
+
+const port = process.env.PORT || 8080;
+app.listen(port, ()=>console.log(`port started at: ${port}`));

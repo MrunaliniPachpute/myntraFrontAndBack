@@ -18,6 +18,10 @@ app.get('/', (req, res) =>{
   res.send('Welcome to myntra items store')
 })
 
+app.get("/health", (req, res) => 
+  res.status(200).json({ message: "Everything is fine" })
+);
+
 app.get('/items', async (req, res) => {
   const storedItems = await getStoredItems();
    await new Promise((resolve, reject) => setTimeout(() => resolve(), 2000));
@@ -44,5 +48,5 @@ app.post('/items', async (req, res) => {
 
 
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8000;
 app.listen(port, ()=>console.log(`port started at: ${port}`));

@@ -20,9 +20,6 @@ function storeItems(items) {
   // return fs.writeFile('./data/items.json', JSON.stringify({ items: items || [] }));
 }
 
-// function storeItems(items) {
-//   return fs.writeFile('./data/items.json', JSON.stringify({ items: items || [] }));
-// }
 
 exports.getStoredItems = getStoredItems;
 exports.storeItems = storeItems;
